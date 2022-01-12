@@ -20,3 +20,13 @@ console.log('The fifth album is', addToCollection('Parachutes', 'Coldplay', 2000
 console.log('The sixth album is', addToCollection('Coming Up', 'Suede', 1996));
 
 console.log('My favorite albums are', collection);
+
+
+function showCollection(array){
+  console.log(array.length);
+  for(let i = 0; i < array.length; i++){
+    console.log(array[i].title + ' by ' + array[i].artist + ', published in ' + array[i].yearPublished);
+  }
+}
+
+showCollection(collection);
