@@ -29,47 +29,61 @@ console.log('The fifth album is', album5);
 let album6 = addToCollection('Coming Up', 'Suede', 1996);
 console.log('The sixth album is', album6);
 
-// function showCollection(array){
-//   console.log(array.length);
-//   for(let i = 0; i < array.length; i++){
-//     console.log(array[i].title + ' by ' + array[i].artist + ', published in ' + array[i].yearPublished);
-//   }
-// }
-//
-// showCollection(collection);
-//
-// function findByArtist(artist){
-//   let result = [];
-//   for(let i = 0; i < collection.length; i++){
-//     if(collection[i].artist === artist){
-//       result.push(collection[i]);
-//     }
-//   }
-//   return result;
-// }
-//
-// console.log('The albums by Nirvana are',findByArtist('Nirvana'));
-// console.log('The albnum by RATM is', findByArtist('RATM'));
-// console.log('The albums by Pearl Jam are', findByArtist('Pearl Jam'));
-//
-// const criteria = {
-//   artist: null,
-//   year: null
-// };
-//
-// function search(criteria){
-//   let result = [];
-//   for(let i = 0; i < collection.length; i++){
-//     if(collection[i].artist === criteria.artist & collection[i].yearPublished === criteria.year){
-//       result.push(collection[i]);
-//     }
-//   }
-//   if( criteria === null || criteria === undefined){
-//     return collection;
-//   }
-//   return result;
-// }
-// console.log(search(criteria));
+console.log(collection);
+
+function showCollection(array){
+  console.log(array.length);
+   for(let i = 0; i < array.length; i++){
+    console.log(array[i].title + ' by ' + array[i].artist + ', published in ' + array[i].yearPublished);
+  }
+}
+
+showCollection(collection);
+
+
+function findByArtist(artist){
+  let result = [];
+  for(let i = 0; i < collection.length; i++){
+    if(collection[i].artist === artist){
+      result.push(collection[i]);
+    }
+  }
+  return result;
+}
+
+console.log('The albums by Nirvana are',findByArtist('Nirvana'));
+console.log('The albnum by RATM is', findByArtist('RATM'));
+console.log('The albums by Pearl Jam are', findByArtist('Pearl Jam'));
+
+const criteria = {
+  artist: 'Ray Charles',
+  year: 1957
+};
+
+function search(criteria){
+  let result = [];
+  for(let i = 0; i < collection.length; i++){
+    if(collection[i].artist === criteria.artist & collection[i].yearPublished === criteria.year){
+      result.push(collection[i]);
+    }
+  }
+  if(criteria === undefined || Object.keys(criteria) === 0 ){
+    return collection;
+  }
+  return result;
+}
+
+console.log('Search for an album by Ray Charles published in 1957', search(criteria));
+
+criteria.artist = 'Nirvana';
+criteria.year = 1991;
+
+console.log('Search for an album by Nirvana published in 1991',search(criteria));
+
+criteria.artist = "Coldplay";
+criteria.year = 2021;
+
+console.log('Search for an album by Coldplay published in 2021',search(criteria));
 //
 // function addToCollectionUpdated(title, artist, yearPublished, tracks){
 //   const album = {
