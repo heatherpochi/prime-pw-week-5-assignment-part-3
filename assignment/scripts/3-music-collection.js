@@ -112,8 +112,24 @@ console.log(tracks);
 let album1WithTracks = addToCollectionUpdated('Nevermind', 'Nirvana', 1991, tracks);
 console.log(album1WithTracks);
 
+criteria.artist = 'Nirvana';
+criteria.year = 1991;
+criteria.trackName = 'Smells Like Teen Spririt';
 
+function searchUpdated(criteria){
+  let result = [];
+  for(let i = 0; i < collection.length; i++){
+    if(collection[i].artist === criteria.artist & collection[i].yearPublished === criteria.year && collection[i].track.name === trackName){
+      result.push(collection[i]);
+    }
+  }
+  if(criteria === undefined || Object.keys(criteria) === 0 ){
+    return collection;
+  }
+  return result;
+}
 
+console.log(searchUpdated(criteria));
 
 // let album1WithTracks = addToCollectionUpdated('Nevermind', 'Nirvana', 1991, [['Smells Like Teen Spirit', '5:01'], ['In Bloom', '4:15'], ['Come As You Are', '3:38'], ['Breed', '3:04']], ['Lithium', '4:17'], ['Polly', '2:57'], ['Territorial Pissings', '2:22'], ['Drain You', '3:43'], ['Lounge Act', '2:36'], ['Stay Away', '3:32'], ['On a Plain', ['3:16'], ['Something In The Way', '3:52'], ['Endless, Nameless', '6:42']]);
 //
