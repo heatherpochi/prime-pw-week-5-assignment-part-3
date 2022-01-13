@@ -87,49 +87,82 @@ console.log('Search for an album by Coldplay published in 2021',search(criteria)
 
 let tracks = [];
 function addToTracks(name, duration){
-  const track = {};
-  track.name = name;
-  track.duration = duration;
+  let track = [name, duration];
   tracks.push(track);
 }
 
 
-
-function addToCollectionUpdated(title, artist, yearPublished, tracks){
-  const album = {};
-  album.title = title;
-  album.artist = artist;
-  album.yearPublished = yearPublished;
-  album.track = tracks;
-  collection.push(album);
-  return album;
-}
-
 addToTracks('Smells Like Teen Spirit', '5:01');
 addToTracks('In Bloom', '4:15');
 console.log(tracks);
+console.log(tracks[0][0]);
 
-let album1WithTracks = addToCollectionUpdated('Nevermind', 'Nirvana', 1991, tracks);
-console.log(album1WithTracks);
 
-criteria.artist = 'Nirvana';
-criteria.year = 1991;
-criteria.trackName = 'Smells Like Teen Spririt';
 
-function searchUpdated(criteria){
-  let result = [];
-  for(let i = 0; i < collection.length; i++){
-    if(collection[i].artist === criteria.artist & collection[i].yearPublished === criteria.year && collection[i].track.name === trackName){
-      result.push(collection[i]);
-    }
-  }
-  if(criteria === undefined || Object.keys(criteria) === 0 ){
-    return collection;
-  }
-  return result;
-}
+// let collectionWithTracks = [];
+//
+// function addToCollectionUpdated(title, artist, yearPublished, tracks){
+//   const album = {};
+//   album.title = title;
+//   album.artist = artist;
+//   album.yearPublished = yearPublished;
+//   album.track = new Object();
+//   album.track.name = tracks[i][1]
+//   album.track.duration = duration;
+//   collectionWithTracks.push(album);
+//   return album;
+// }
 
-console.log(searchUpdated(criteria));
+// addToCollectionUpdated('Nevermind', 'Nirvana', 1991, [['Smells Like Teen Spirit', '5:01'], ['In Bloom', '4:15']]);
+//
+// console.log(collectionWithTracks);
+//
+// criteria.artist = 'Nirvana';
+// criteria.year = 1991;
+// criteria.trackName = 'Smells Like Teen Spririt';
+//
+// function searchUpdated(criteria){
+//   let result = [];
+//   for(let i = 0; i < collection.length; i++){
+//     if(collection[i].artist === criteria.artist & collection[i].yearPublished === criteria.year && collection[i].track.name === criteria.trackName){
+//       result.push(collection[i]);
+//       }
+//     }
+//   if(criteria === undefined || Object.keys(criteria) === 0 ){
+//     return collectionWithTracks;
+//   }
+//   return result;
+// }
+//
+// searchUpdated(criteria);
+
+// addToTracks('Smells Like Teen Spirit', '5:01');
+// addToTracks('In Bloom', '4:15');
+// console.log(tracks);
+
+//
+// criteria.artist = 'Nirvana';
+// criteria.year = 1991;
+// criteria.trackName = 'Smells Like Teen Spririt';
+//
+// function searchUpdated(criteria){
+//   let result = [];
+//   for(let i = 0; i < collection.length; i++){
+//     if(collection[i].artist === criteria.artist & collection[i].yearPublished === criteria.year){
+//       for(let j = 0; j < tracks.length; j++){
+//         if(track.name === criteria.trackName){
+//           result.push(collection[i]);
+//         }
+//       }
+//     }
+//   }
+//   if(criteria === undefined || Object.keys(criteria) === 0 ){
+//     return collection;
+//   }
+//   return result;
+// }
+//
+// console.log(searchUpdated(criteria));
 
 // let album1WithTracks = addToCollectionUpdated('Nevermind', 'Nirvana', 1991, [['Smells Like Teen Spirit', '5:01'], ['In Bloom', '4:15'], ['Come As You Are', '3:38'], ['Breed', '3:04']], ['Lithium', '4:17'], ['Polly', '2:57'], ['Territorial Pissings', '2:22'], ['Drain You', '3:43'], ['Lounge Act', '2:36'], ['Stay Away', '3:32'], ['On a Plain', ['3:16'], ['Something In The Way', '3:52'], ['Endless, Nameless', '6:42']]);
 //
