@@ -84,18 +84,42 @@ criteria.artist = "Coldplay";
 criteria.year = 2021;
 
 console.log('Search for an album by Coldplay published in 2021',search(criteria));
+
+let tracks = [];
+function addToTracks(name, duration){
+  const track = {};
+  track.name = name;
+  track.duration = duration;
+  tracks.push(track);
+}
+
+
+
+function addToCollectionUpdated(title, artist, yearPublished, tracks){
+  const album = {};
+  album.title = title;
+  album.artist = artist;
+  album.yearPublished = yearPublished;
+  album.track = tracks;
+  collection.push(album);
+  return album;
+}
+
+addToTracks('Smells Like Teen Spirit', '5:01');
+addToTracks('In Bloom', '4:15');
+console.log(tracks);
+
+let album1WithTracks = addToCollectionUpdated('Nevermind', 'Nirvana', 1991, tracks);
+console.log(album1WithTracks);
+
+
+
+
+// let album1WithTracks = addToCollectionUpdated('Nevermind', 'Nirvana', 1991, [['Smells Like Teen Spirit', '5:01'], ['In Bloom', '4:15'], ['Come As You Are', '3:38'], ['Breed', '3:04']], ['Lithium', '4:17'], ['Polly', '2:57'], ['Territorial Pissings', '2:22'], ['Drain You', '3:43'], ['Lounge Act', '2:36'], ['Stay Away', '3:32'], ['On a Plain', ['3:16'], ['Something In The Way', '3:52'], ['Endless, Nameless', '6:42']]);
 //
-// function addToCollectionUpdated(title, artist, yearPublished, tracks){
-//   const album = {
-//     title: title,
-//     artist: artist,
-//     yearPublished: yearPublished,
-//     tracks: [name, duration]
-//   }
-//   collection.push(album);
-//   return album;
-// }
-//
+// console.log(album1WithTracks);
+
+
 // console.log('The first album is', addToCollection('Nevermind', 'Nirvana', 1991, [['Smells Like Teen Spirit', '5:01'], ['In Bloom', '4:15']]));
 // console.log('The second album is', addToCollection('Renegades', 'RATM', 2000));
 // console.log('The third album is', addToCollection('Absolution', 'Muse', 2003));
