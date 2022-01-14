@@ -255,6 +255,9 @@ criteria.trackName = 'Yellow';
 console.log('The criteria are now:', criteria);
 
 function searchUpdated(criteria){
+  if(Object.keys(criteria).length === 0){
+    return collection;
+  }
   let result = [];
   for(i = 0; i < collectionWithTracks.length; i++){
     for(j = 0; j < collectionWithTracks[i].tracks.length; j++){
