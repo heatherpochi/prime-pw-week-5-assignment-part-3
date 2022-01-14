@@ -244,31 +244,12 @@ function showCollectionUpdated(array){
         let duration = array[i].tracks[j].duration;
         console.log(name + ': ' + duration);
       }
-    } 
+    }
 }
 
 showCollectionUpdated(collectionWithTracks);
 
-// criteria.artist = 'Nirvana';
-// criteria.year = 1991;
-// criteria.trackName = 'Smells Like Teen Spririt';
-//
-// function searchUpdated(criteria){
-//   let result = [];
-//   if(Object.keys(criteria).length === 0){
-//     return collectionWithTracks;
-//   }
-//   for(let i = 0; i < collectionWithTracks.length; i++){
-//     for(let j = 0; j < collectionWithTracks[i].tracks.length; j++){
-//       if(collectionWithTracks[i].tracks[j].name === criteria.trackName){
-//         result.push(collectionWithTracks[i]);
-//       }
-    //   if(collectionWithTracks[i].artist === criteria.artist & collectionWithTracks[i].yearPublished === criteria.year && collectionWithTracks[i].tracks[j].name === criteria.trackName){
-    //   result.push(collectionWithTracks[i]);
-    // }
-  // return result;
-//   }
-// }
-// }
-
-//console.log(searchUpdated(criteria));
+criteria.artist = 'Nirvana';
+criteria.year = 1991;
+criteria.trackName = 'Smells Like Teen Spririt';
+console.log('The criteria are now:', criteria);
