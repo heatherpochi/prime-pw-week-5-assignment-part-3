@@ -85,41 +85,135 @@ criteria.year = 2021;
 
 console.log('Search for an album by Coldplay published in 2021',search(criteria));
 
-// let tracks = [];
-// function addToTracks(name, duration){
-//   let track = {};
-//   track.name = name;
-//   track.duration = duration;
-//   tracks.push(track);
-// }
-//
-// addToTracks('Smells Like Teen Spirit', '5:01');
-// addToTracks('In Bloom', '4:15');
-// addToTracks('Come As You Are', '3:38');
-// console.log('Track information of the album is', tracks);
-// console.log(`The title of the first track is ${tracks[0].name}`);
+let tracks1 = [];
+function addToTracks1(name, duration){
+  let track = {};
+  track.name = name;
+  track.duration = duration;
+  tracks1.push(track);
+}
+
+addToTracks1('Smells Like Teen Spirit', '5:01');
+addToTracks1('In Bloom', '4:15');
+addToTracks1('Come As You Are', '3:38');
+addToTracks1('Breed', '3:04');
+addToTracks1('Lithium', '4:17');
+addToTracks1('Polly', '2:57');
+console.log('Track information of the first album is', tracks1);
+console.log(`The title of the first track is ${tracks1[0].name}`);
+
+let tracks2 = [];
+function addToTracks2(name, duration){
+  let track = {};
+  track.name = name;
+  track.duration = duration;
+  tracks2.push(track);
+}
+
+addToTracks2('Microphone Fiend', '5:01');
+addToTracks2('Pistol Grip Pump', '3:16');
+addToTracks2('Kick Out the Jams', '3:10');
+addToTracks2('Renegades of Funk', '4:34');
+addToTracks2('Beautiful World', '2:34');
+addToTracks2('I\'m Housing', '2:57');
+console.log('Track information of the second album is', tracks2);
+console.log(`The title of the first track is ${tracks2[0].name}`);
+
+let tracks3 = [];
+function addToTracks3(name, duration){
+  let track = {};
+  track.name = name;
+  track.duration = duration;
+  tracks3.push(track);
+}
+
+addToTracks3('Intro', '0:24');
+addToTracks3('Apocalypse Please', '4:13');
+addToTracks3('Time is Running Out', '3:56');
+addToTracks3('Sing for Absolution', '4:55');
+addToTracks3('Stockholm Syndrome', '4:58');
+addToTracks3('Falling Away With You', '4:41');
+console.log('Track information of the third album is', tracks3);
+console.log(`The title of the first track is ${tracks3[0].name}`);
+
+let tracks4 = [];
+function addToTracks4(name, duration){
+  let track = {};
+  track.name = name;
+  track.duration = duration;
+  tracks4.push(track);
+}
+
+addToTracks4('Blew', '2:54');
+addToTracks4('Floyd the Barber', '2:18');
+addToTracks4('About a Girl', '2:48');
+addToTracks4('School', '2:42');
+addToTracks4('Love Buzz', '3:35');
+addToTracks4('Paper Cuts', '4:06');
+console.log('Track information of the fourth album is', tracks4);
+console.log(`The title of the first track is ${tracks4[0].name}`);
+
+let tracks5 = [];
+function addToTracks5(name, duration){
+  let track = {};
+  track.name = name;
+  track.duration = duration;
+  tracks5.push(track);
+}
+
+addToTracks5('Don\'t Panic', '2:17');
+addToTracks5('Shiver', '4:59');
+addToTracks5('Spies', '5:18');
+addToTracks5('Sparks', '3:47');
+addToTracks5('Yellow', '4:29');
+addToTracks5('Trouble', '4:30');
+console.log('Track information of the fifth album is', tracks5);
+console.log(`The title of the first track is ${tracks5[0].name}`);
+
+let tracks6 = [];
+function addToTracks6(name, duration){
+  let track = {};
+  track.name = name;
+  track.duration = duration;
+  tracks6.push(track);
+}
+
+addToTracks6('Trash', '4:05');
+addToTracks6('Filmstar', '3:25');
+addToTracks6('Lazy', '3:17');
+addToTracks6('By the Sea', '4:17');
+addToTracks6('She', '3:38');
+addToTracks6('Beautiful Ones', '3:50');
+console.log('Track information of the sixth album is', tracks6);
+console.log(`The title of the first track is ${tracks6[0].name}`);
+
 
 
 let collectionWithTracks = [];
 
-function addToCollectionUpdated(title, artist, yearPublished, name, duration){
+function addToCollectionUpdated(title, artist, yearPublished, tracks){
   const album = {};
   album.title = title;
   album.artist = artist;
   album.yearPublished = yearPublished;
-  let tracks = [];
-  const track ={};
-  track.name = name;
-  track.duration = duration;
-  tracks.push(track);
   album.tracks = tracks;
   collectionWithTracks.push(album);
   return album;
 }
 
-addToCollectionUpdated('Nevermind', 'Nirvana', 1991, 'Smells Like Teen Spirit', '5:01');
-addToCollectionUpdated('Nevermind', 'Nirvana', 1991, 'In Bloom', '4:15');
+let album1WithTracks = addToCollectionUpdated('Nevermind', 'Nirvana', 1991, tracks1);
+let album2WithTracks = addToCollectionUpdated('Renegades', 'RATM', 2000, tracks2);
+let album3WithTracks = addToCollectionUpdated('Absolution', 'Muse', 2003, tracks3);
+let album4WithTracks = addToCollectionUpdated('Bleach', 'Nirvana', 1989, tracks4);
+let album5WithTracks = addToCollectionUpdated('Parachutes', 'Coldplay', 2000, tracks5);
+let album6WithTracks = addToCollectionUpdated('Coming Up', 'Suede', 1996, tracks6);
 
+console.log('The first album is', album1WithTracks);
+console.log('The second album is', album2WithTracks);
+console.log('The third album is', album3WithTracks);
+console.log('The fourth album is', album4WithTracks);
+console.log('The fifth album is', album5WithTracks);
+console.log('The sixth album is', album6WithTracks);
 
 console.log('The collection of albums with their track info:', collectionWithTracks);
 
