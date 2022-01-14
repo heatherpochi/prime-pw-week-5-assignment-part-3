@@ -60,20 +60,21 @@ const criteria = {
   year: 1957
 };
 
+
 function search(criteria){
   let result = [];
+  if(Object.keys(criteria).length === 0){
+    return collection;
+  }
   for(let i = 0; i < collection.length; i++){
     if(collection[i].artist === criteria.artist & collection[i].yearPublished === criteria.year){
       result.push(collection[i]);
     }
   }
-  if(criteria === undefined || Object.keys(criteria) === 0 ){
-    return collection;
-  }
   return result;
 }
 
-console.log('Search for an album by Ray Charles published in 1957', search(criteria));
+console.log('Search for an album by Ray Charles published in 1957, (should return an empty array)', search(criteria));
 
 criteria.artist = 'Nirvana';
 criteria.year = 1991;
@@ -83,7 +84,15 @@ console.log('Search for an album by Nirvana published in 1991',search(criteria))
 criteria.artist = "Coldplay";
 criteria.year = 2021;
 
-console.log('Search for an album by Coldplay published in 2021',search(criteria));
+console.log('Search for an album by Coldplay published in 2021, (should return an empty array)',search(criteria));
+
+
+delete criteria.artist;
+delete criteria.year;
+
+
+console.log('Search for an empty object, (should return all albums in the collection)', search(criteria));
+
 
 let tracks1 = [];
 function addToTracks1(name, duration){
@@ -229,31 +238,37 @@ console.log(collectionWithTracks[4].tracks[2].name);
 function showCollectionUpdated(array){
   console.log(array.length);
   for(let i = 0; i < array.length; i++){
-    for(let j = 0; j < array[i].tracks.length; j++){
-    console.log(array[i].title + ' by ' + array[i].artist + ', published in ' + array[i].yearPublished + ': ' + array[i].tracks[j].name + ': ' + array[i].tracks[j].duration);
-   }
- }
+    console.log(array[i].title + ' by ' + array[i].artist + ', published in ' + array[i].yearPublished + ': ');
+      for(let j = 0; j < array[i].tracks.length; j++){
+        let name = array[i].tracks[j].name;
+        let duration = array[i].tracks[j].duration;
+        console.log(name + ': ' + duration);
+      }
+    } 
 }
 
 showCollectionUpdated(collectionWithTracks);
 
-criteria.artist = 'Nirvana';
-criteria.year = 1991;
-criteria.trackName = 'Smells Like Teen Spririt';
+// criteria.artist = 'Nirvana';
+// criteria.year = 1991;
+// criteria.trackName = 'Smells Like Teen Spririt';
+//
+// function searchUpdated(criteria){
+//   let result = [];
+//   if(Object.keys(criteria).length === 0){
+//     return collectionWithTracks;
+//   }
+//   for(let i = 0; i < collectionWithTracks.length; i++){
+//     for(let j = 0; j < collectionWithTracks[i].tracks.length; j++){
+//       if(collectionWithTracks[i].tracks[j].name === criteria.trackName){
+//         result.push(collectionWithTracks[i]);
+//       }
+    //   if(collectionWithTracks[i].artist === criteria.artist & collectionWithTracks[i].yearPublished === criteria.year && collectionWithTracks[i].tracks[j].name === criteria.trackName){
+    //   result.push(collectionWithTracks[i]);
+    // }
+  // return result;
+//   }
+// }
+// }
 
-function searchUpdated(criteria){
-  let result = [];
-  for(let i = 0; i < collectionWithTracks.length; i++){
-    for(let j = 0; j < collectionWithTracks[i].tracks.length; j++){
-      if(collectionWithTracks[i].artist === criteria.artist && collectionWithTracks[i].yearPublished === criteria.year && collectionWithTracks[i].tracks[j].name === criteria.trackName){
-        result.push(collectionWithTracks[i])
-      }
-    }
-  }
-  if(criteria === undefined || Object.keys(criteria) === 0 ){
-    return collectionWithTracks;
-  }
-  return result;
-}
-
-// console.log(searchUpdated(criteria));
+//console.log(searchUpdated(criteria));
