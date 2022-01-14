@@ -96,46 +96,46 @@ function addToTracks(name, duration){
 addToTracks('Smells Like Teen Spirit', '5:01');
 addToTracks('In Bloom', '4:15');
 addToTracks('Come As You Are', '3:38');
-console.log(tracks);
+console.log('Track information of the album is', tracks);
+console.log(`The title of the first track is ${tracks[0].name}`);
 
 
-// let collectionWithTracks = [];
-//
-// function addToCollectionUpdated(title, artist, yearPublished, tracks){
-//   const album = {};
-//   album.title = title;
-//   album.artist = artist;
-//   album.yearPublished = yearPublished;
-//   album.tracks = new Object();
-//   album.track.name = tracks[i][0];
-//   album.track.duration = tracks[i][1];
-//   collectionWithTracks.push(album);
-//   return album;
-// }
-//
-//
-// addToCollectionUpdated('Nevermind', 'Nirvana', 1991, tracks);
+let collectionWithTracks = [];
 
-// console.log(collectionWithTracks);
-//
-// criteria.artist = 'Nirvana';
-// criteria.year = 1991;
-// criteria.trackName = 'Smells Like Teen Spririt';
-//
-// function searchUpdated(criteria){
-//   let result = [];
-//   for(let i = 0; i < collection.length; i++){
-//     if(collection[i].artist === criteria.artist & collection[i].yearPublished === criteria.year && collection[i].track.name === criteria.trackName){
-//       result.push(collection[i]);
-//       }
-//     }
-//   if(criteria === undefined || Object.keys(criteria) === 0 ){
-//     return collectionWithTracks;
-//   }
-//   return result;
-// }
-//
-// searchUpdated(criteria);
+function addToCollectionUpdated(title, artist, yearPublished, tracks){
+  const album = {};
+  album.title = title;
+  album.artist = artist;
+  album.yearPublished = yearPublished;
+  album.tracks = tracks;
+  collectionWithTracks.push(album);
+  return album;
+}
+
+addToCollectionUpdated('Nevermind', 'Nirvana', 1991, tracks);
+
+console.log('The collection of albums with their track info:', collectionWithTracks);
+
+criteria.artist = 'Nirvana';
+criteria.year = 1991;
+criteria.trackName = 'Smells Like Teen Spririt';
+
+function searchUpdated(criteria){
+  let result = [];
+  for(let i = 0; i < collectionWithTracks.length; i++){
+    for(let j = 0; j < tracks.length; j++){
+      if(collectionWithTracks[i].artist === criteria.artist && collectionWithTracks[i].yearPublished === criteria.year && tracks[j].name === criteria.trackName){
+        result.push(collectionWithTracks)
+      }
+    }
+  }
+  if(criteria === undefined || Object.keys(criteria) === 0 ){
+    return collectionWithTracks;
+  }
+  return result;
+}
+
+console.log(searchUpdated(criteria));
 
 // addToTracks('Smells Like Teen Spirit', '5:01');
 // addToTracks('In Bloom', '4:15');
