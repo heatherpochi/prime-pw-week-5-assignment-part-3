@@ -87,16 +87,16 @@ console.log('Search for an album by Coldplay published in 2021',search(criteria)
 
 let tracks = [];
 function addToTracks(name, duration){
-  let track = [name, duration];
+  let track = {};
+  track.name = name;
+  track.duration = duration;
   tracks.push(track);
 }
 
-
 addToTracks('Smells Like Teen Spirit', '5:01');
 addToTracks('In Bloom', '4:15');
+addToTracks('Come As You Are', '3:38');
 console.log(tracks);
-console.log(tracks[0][0]);
-
 
 
 // let collectionWithTracks = [];
@@ -106,15 +106,16 @@ console.log(tracks[0][0]);
 //   album.title = title;
 //   album.artist = artist;
 //   album.yearPublished = yearPublished;
-//   album.track = new Object();
-//   album.track.name = tracks[i][1]
-//   album.track.duration = duration;
+//   album.tracks = new Object();
+//   album.track.name = tracks[i][0];
+//   album.track.duration = tracks[i][1];
 //   collectionWithTracks.push(album);
 //   return album;
 // }
-
-// addToCollectionUpdated('Nevermind', 'Nirvana', 1991, [['Smells Like Teen Spirit', '5:01'], ['In Bloom', '4:15']]);
 //
+//
+// addToCollectionUpdated('Nevermind', 'Nirvana', 1991, tracks);
+
 // console.log(collectionWithTracks);
 //
 // criteria.artist = 'Nirvana';
