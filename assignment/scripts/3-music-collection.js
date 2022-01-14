@@ -217,23 +217,43 @@ console.log('The sixth album is', album6WithTracks);
 
 console.log('The collection of albums with their track info:', collectionWithTracks);
 
-// criteria.artist = 'Nirvana';
-// criteria.year = 1991;
-// criteria.trackName = 'Smells Like Teen Spririt';
-//
-// function searchUpdated(criteria){
-//   let result = [];
-//   for(let i = 0; i < collectionWithTracks.length; i++){
-//     for(let j = 0; j < tracks.length; j++){
-//       if(collectionWithTracks[i].artist === criteria.artist && collectionWithTracks[i].yearPublished === criteria.year && tracks[j].name === criteria.trackName){
-//         result.push(collectionWithTracks)
-//       }
-//     }
-//   }
-//   if(criteria === undefined || Object.keys(criteria) === 0 ){
-//     return collectionWithTracks;
-//   }
-//   return result;
-// }
-//
+console.log(collectionWithTracks[2]);
+console.log(collectionWithTracks[2].tracks);
+console.log(collectionWithTracks[2].tracks[1]);
+
+console.log(collectionWithTracks[2].tracks.length);
+
+console.log(collectionWithTracks[4].tracks[2].name);
+
+
+function showCollectionUpdated(array){
+  console.log(array.length);
+  for(let i = 0; i < array.length; i++){
+    for(let j = 0; j < array[i].tracks.length; j++){
+    console.log(array[i].title + ' by ' + array[i].artist + ', published in ' + array[i].yearPublished + ': ' + array[i].tracks[j].name + ': ' + array[i].tracks[j].duration);
+   }
+ }
+}
+
+showCollectionUpdated(collectionWithTracks);
+
+criteria.artist = 'Nirvana';
+criteria.year = 1991;
+criteria.trackName = 'Smells Like Teen Spririt';
+
+function searchUpdated(criteria){
+  let result = [];
+  for(let i = 0; i < collectionWithTracks.length; i++){
+    for(let j = 0; j < collectionWithTracks[i].tracks.length; j++){
+      if(collectionWithTracks[i].artist === criteria.artist && collectionWithTracks[i].yearPublished === criteria.year && collectionWithTracks[i].tracks[j].name === criteria.trackName){
+        result.push(collectionWithTracks[i])
+      }
+    }
+  }
+  if(criteria === undefined || Object.keys(criteria) === 0 ){
+    return collectionWithTracks;
+  }
+  return result;
+}
+
 // console.log(searchUpdated(criteria));
