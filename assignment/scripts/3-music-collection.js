@@ -242,7 +242,7 @@ function showCollectionUpdated(array){
       for(let j = 0; j < array[i].tracks.length; j++){
         let name = array[i].tracks[j].name;
         let duration = array[i].tracks[j].duration;
-        console.log(name + ': ' + duration);
+        console.log(j+1 + '.' + name + ': ' + duration);
       }
     }
 }
