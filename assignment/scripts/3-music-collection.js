@@ -249,7 +249,23 @@ function showCollectionUpdated(array){
 
 showCollectionUpdated(collectionWithTracks);
 
-criteria.artist = 'Nirvana';
-criteria.year = 1991;
-criteria.trackName = 'Smells Like Teen Spririt';
+criteria.artist = 'Coldplay';
+criteria.year = 2000;
+criteria.trackName = 'Yellow';
 console.log('The criteria are now:', criteria);
+
+function searchUpdated(criteria){
+  let result = [];
+  for(i = 0; i < collectionWithTracks.length; i++){
+    for(j = 0; j < collectionWithTracks[i].tracks.length; j++){
+      if(collectionWithTracks[i].artist === criteria.artist && collectionWithTracks[i].yearPublished === criteria.year){
+        if(collectionWithTracks[i].tracks[j].name === criteria.trackName){
+          result.push(collectionWithTracks[i]);
+        }
+      }
+    }
+  }
+  return result;
+}
+
+console.log(searchUpdated(criteria));
