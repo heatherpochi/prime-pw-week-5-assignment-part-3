@@ -9,34 +9,35 @@ function addToCollection(title, artist, yearPublished){
   album.yearPublished = yearPublished;
   collection.push(album);
   return album;
-}
+}//This function creates an album object and add it to the array, collection.
 
-let album1 = addToCollection('Nevermind', 'Nirvana', 1991);
+let album1 = addToCollection('Nevermind', 'Nirvana', 1991); //"Nevermind" album is created and added to collection.
 console.log('The first album is', album1);
 
-let album2 = addToCollection('Renegades', 'RATM', 2000);
+let album2 = addToCollection('Renegades', 'RATM', 2000);//"Renegades" album is created and added to collection.
 console.log('The second album is', album2);
 
-let album3 = addToCollection('Absolution', 'Muse', 2003);
+let album3 = addToCollection('Absolution', 'Muse', 2003);//"Absolution" album is created and added to collection.
 console.log('The third album is', album3);
 
-let album4 = addToCollection('Bleach', 'Nirvana', 1989);
+let album4 = addToCollection('Bleach', 'Nirvana', 1989);//"Bleach" album is created and added to collection.
 console.log('The fourth album is', album4);
 
-let album5 = addToCollection('Parachutes', 'Coldplay', 2000);
+let album5 = addToCollection('Parachutes', 'Coldplay', 2000);//"Parachutes" album is created and added to collection.
 console.log('The fifth album is', album5);
 
-let album6 = addToCollection('Coming Up', 'Suede', 1996);
+let album6 = addToCollection('Coming Up', 'Suede', 1996);//"Coming Up" album is created and added to collection.
 console.log('The sixth album is', album6);
 
-console.log(collection);
+console.log('The collection of the albums are', collection);
+
 
 function showCollection(array){
   console.log(array.length);
    for(let i = 0; i < array.length; i++){
     console.log(array[i].title + ' by ' + array[i].artist + ', published in ' + array[i].yearPublished);
   }
-}
+}//This function shows the number of albums in collection and the information of each album.
 
 showCollection(collection);
 
@@ -49,7 +50,7 @@ function findByArtist(artist){
     }
   }
   return result;
-}
+}//This function shows album(s) by the artist used as an input parameter.
 
 console.log('The albums by Nirvana are',findByArtist('Nirvana'));
 console.log('The albnum by RATM is', findByArtist('RATM'));
@@ -58,7 +59,7 @@ console.log('The albums by Pearl Jam are', findByArtist('Pearl Jam'));
 const criteria = {
   artist: 'Ray Charles',
   year: 1957
-};
+}; //Creates search criteria obejct with properties of artist(Ray Charles) and year(1957).
 
 
 function search(criteria){
@@ -72,23 +73,23 @@ function search(criteria){
     }
   }
   return result;
-}
+}//This function shows albums that match the properties of the criteria obejct. If there's no match it shows empty array, if there's no criteria object it shows the entire collection of albums.
 
 console.log('Search for an album by Ray Charles published in 1957, (should return an empty array)', search(criteria));
 
 criteria.artist = 'Nirvana';
-criteria.year = 1991;
+criteria.year = 1991; //Changes the properties of the criteria object to Nirvana and 1991.
 
 console.log('Search for an album by Nirvana published in 1991',search(criteria));
 
 criteria.artist = "Coldplay";
-criteria.year = 2021;
+criteria.year = 2021; //Changes the properties of the criteria object to Coldplay and 2021.
 
 console.log('Search for an album by Coldplay published in 2021, (should return an empty array)',search(criteria));
 
 
 delete criteria.artist;
-delete criteria.year;
+delete criteria.year; //Empties the criteria object.
 
 
 console.log('Search for an empty object, (should return all albums in the collection)', search(criteria));
@@ -100,9 +101,9 @@ function addToTracks1(name, duration){
   track.name = name;
   track.duration = duration;
   tracks1.push(track);
-}
+}//This function creates a track object with properties of name and duration and add the objects to an array.
 
-addToTracks1('Smells Like Teen Spirit', '5:01');
+addToTracks1('Smells Like Teen Spirit', '5:01'); //Creates a track object of which name property is "Smells Like Teen Spirit" and duration property is 5:01, and then add the object to the array tracks1.
 addToTracks1('In Bloom', '4:15');
 addToTracks1('Come As You Are', '3:38');
 addToTracks1('Breed', '3:04');
@@ -208,9 +209,9 @@ function addToCollectionUpdated(title, artist, yearPublished, tracks){
   album.tracks = tracks;
   collectionWithTracks.push(album);
   return album;
-}
+}// This function is an updated version of the addToCollection function, which creates an object called album with properties of title, artist, yearPublished, and tracks. Then it adds the album to the array, collectionWithTracks.
 
-let album1WithTracks = addToCollectionUpdated('Nevermind', 'Nirvana', 1991, tracks1);
+let album1WithTracks = addToCollectionUpdated('Nevermind', 'Nirvana', 1991, tracks1);//Creates the first album object with the four properties and add it to the array collectionWithTracks.
 let album2WithTracks = addToCollectionUpdated('Renegades', 'RATM', 2000, tracks2);
 let album3WithTracks = addToCollectionUpdated('Absolution', 'Muse', 2003, tracks3);
 let album4WithTracks = addToCollectionUpdated('Bleach', 'Nirvana', 1989, tracks4);
@@ -226,37 +227,14 @@ console.log('The sixth album is', album6WithTracks);
 
 console.log('The collection of albums with their track info:', collectionWithTracks);
 
-console.log(collectionWithTracks[2]);
-console.log(collectionWithTracks[2].tracks);
-console.log(collectionWithTracks[2].tracks[1]);
-
-console.log(collectionWithTracks[2].tracks.length);
-
-console.log(collectionWithTracks[4].tracks[2].name);
-
-
-function showCollectionUpdated(array){
-  console.log(array.length);
-  for(let i = 0; i < array.length; i++){
-    console.log(array[i].title + ' by ' + array[i].artist + ', published in ' + array[i].yearPublished + ': ');
-      for(let j = 0; j < array[i].tracks.length; j++){
-        let name = array[i].tracks[j].name;
-        let duration = array[i].tracks[j].duration;
-        console.log(j+1 + '.' + name + ': ' + duration);
-      }
-    }
-}
-
-showCollectionUpdated(collectionWithTracks);
-
 criteria.artist = 'Coldplay';
 criteria.year = 2000;
-criteria.trackName = 'Yellow';
+criteria.trackName = 'Yellow'; //Adds the property trackName to the criteria object.
 console.log('The criteria are now:', criteria);
 
 function searchUpdated(criteria){
   if(Object.keys(criteria).length === 0){
-    return collection;
+    return collectionWithTracks;
   }
   let result = [];
   for(i = 0; i < collectionWithTracks.length; i++){
@@ -269,6 +247,33 @@ function searchUpdated(criteria){
     }
   }
   return result;
-}
+} //This is an updated version of the search function. Now it finds album(s) that match(es) the criteria: artist, year, trackName.
 
-console.log(searchUpdated(criteria));
+console.log('The album made by Coldplay in 2000 with a track titled "Yellow" is', searchUpdated(criteria));
+
+criteria.artist = 'Suede';
+criteria.year = 2000;
+criteria.trackName = 'Lazy'; //Adds the property trackName to the criteria object.
+console.log('The criteria are now:', criteria);
+console.log('The album made by Suede in 2000 with a track titled "Lazy" is (should return an empty array)', searchUpdated(criteria));
+
+delete criteria.artist;
+delete criteria.year;
+delete criteria.trackName;
+console.log('The criteria are now:', criteria);
+console.log('No criteria to match with (should return the entire collection of albums with track information)', searchUpdated(criteria));
+
+
+function showCollectionUpdated(array){
+  console.log(array.length);
+  for(let i = 0; i < array.length; i++){
+    console.log(array[i].title + ' by ' + array[i].artist + ', published in ' + array[i].yearPublished + ': ');
+      for(let j = 0; j < array[i].tracks.length; j++){
+        let name = array[i].tracks[j].name;
+        let duration = array[i].tracks[j].duration;
+        console.log(j+1 + '. ' + name + ': ' + duration);
+      }
+    }
+}//This is an updated version of the showCollection function, which shows track name and duration.
+
+showCollectionUpdated(collectionWithTracks);
