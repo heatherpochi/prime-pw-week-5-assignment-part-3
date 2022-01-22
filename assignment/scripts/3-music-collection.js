@@ -68,7 +68,7 @@ function search(criteria){
     return collection;
   }
   for(let i = 0; i < collection.length; i++){
-    if(collection[i].artist === criteria.artist & collection[i].yearPublished === criteria.year){
+    if(collection[i].artist === criteria.artist && collection[i].yearPublished === criteria.year){
       result.push(collection[i]);
     }
   }
